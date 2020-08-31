@@ -4,6 +4,8 @@ using namespace std;
 
 #define ll long long 
 
+// Problem: https://www.codechef.com/problems/KCON
+
 ll max_subarray_sum(ll a[], ll n, ll k) {
     ll max_so_far = INT_MIN;
     ll max_ending_here = 0;
