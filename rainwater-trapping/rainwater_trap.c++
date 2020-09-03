@@ -25,6 +25,30 @@ int rain_water_trapped(int heights[], int n) {
 	return total_rain_trapped;
 }
 
+int rainwater_space_optimized(int heights[], int n) {
+    int lo = 0, hi = n - 1;
+    int left_max = 0, right_max = 0;
+    int total_rain_trapped = 0;
+    while (lo <= hi) {
+        if (heights[lo] < heights[hi]) {
+            if (heights[lo] > left_max) {
+                left_max = heights[lo];
+            } else {
+                total_rain_trapped += left_max - heights[lo];
+            }
+            lo += 1;
+        } else {
+            if (heights[hi] > right_max) {
+                right_max = heights[hi];
+            } else {
+                total_rain_trapped += right_max - heights[hi];
+            }
+            hi -= 1;
+        }
+    }
+    return total_rain_trapped;
+}
+
 int main() {
 	/*
 	Input: arr[] = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
@@ -39,6 +63,6 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		cin >> heights[i];
 	}
-	cout << rain_water_trapped(heights, n) << endl;
+	cout << rainwater_space_optimized(heights, n) << endl;
 	return 0;
 }
