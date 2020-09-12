@@ -28,7 +28,7 @@ int min_platforms(int arr[], int dep[], int n) {
 }
 
 int min_platforms_efficient(int arr[], int dep[], int n) {
-	// Efficient solution - O(n)
+	// Efficient solution - O(nlogn) 
 	// Sort the arrays first
 
 	sort(arr, arr + n);
