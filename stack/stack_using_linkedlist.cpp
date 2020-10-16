@@ -76,17 +76,6 @@ public:
         return head;
     }
 
-    int get_last_node(node* head) {
-        if (head == NULL) {
-            cout << "No Node exists! LL empty" << endl;
-            return -1;
-        }
-        node* temp = head;
-        while (temp->next != NULL) {
-            temp = temp->next;
-        }
-        return temp->data;
-    }
 };
 
 
@@ -99,7 +88,7 @@ public:
     }
 
     void push(int x) {
-        head = l.insertAtTail(x, head);
+        head = l.insertAtHead(x, head);
         return;
     }
 
@@ -108,8 +97,8 @@ public:
             cout << "Stack is empty, cannot pop element" << endl;
             return -1;
         }
-        int popped_element = l.get_last_node(head);
-        head = l.deleteFromTail(head);
+        int popped_element = head->data;
+        head = l.deleteFromHead(head);
         return popped_element;
     }
 
@@ -118,7 +107,7 @@ public:
             cout << "Stack is empty, cannot return peak element" << endl;
             return -1;
         }
-        return l.get_last_node(head);
+        return head->data;
     }
 
 };
