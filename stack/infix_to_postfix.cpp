@@ -56,11 +56,6 @@ int precedence(char op) {
     return -1;
 }
 
-bool is_operator(char op) {
-    return (op == '+' || op == '-' || op == '*' || op == '/' || op == '^');
-}
-
-
 int main() {
     string infix = "a+b*(c^d-e)^(f+g*h)-i";
     cout << infix << endl;
@@ -91,7 +86,7 @@ int main() {
     while (!s.is_empty()) {
         postfix += s.pop();
     }
-    
+
     cout << postfix << endl;
     return 0;
 }
